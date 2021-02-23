@@ -18,13 +18,12 @@ function requestAPI(event) {
     const getWebApiData = async (baseURL, key)=>{
         /// Ask for real data from the OpenWeatherMap API
         const res = await fetch(baseURL+'London,uk&APPID='+key);
-        console.log('API reponse', res)
 
-        console.log('getWebApiData', res);
+        //console.log('getWebApiData', res);
         try {
             // response from the API
             const data = await res.json();
-            console.log('API response', data);
+            //console.log('API response', data);
 
             return data;
         }  catch(error) {
@@ -40,17 +39,9 @@ function requestAPI(event) {
     // call to the Async Get
     getWebApiData(baseURL, apiKey)
     .then(function(returnedData){
-        console.log('Async Get data', returnedData);
-
-        // call the Async Post
-        fetch('http://localhost:8081/test')
-        .then(res => {
-            return res.json()
-        })
-        .then(function(returnedData) {
-            document.getElementById('results').innerHTML = returnedData.main.temp
-            console.log(returnedData.main.temp)
-        })
+        // update the UI with the data from the API
+        document.getElementById('results').innerHTML = returnedData.main.temp
+        console.log(returnedData.main.temp)
     })
 }
 
