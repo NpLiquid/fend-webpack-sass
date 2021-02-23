@@ -3,6 +3,7 @@ function requestAPI(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
+    console.log('Name accessed from external API', formText)
 
     Client.checkForName(formText)
 
@@ -17,6 +18,7 @@ function requestAPI(event) {
     const getWebApiData = async (baseURL, key)=>{
         /// Ask for real data from the OpenWeatherMap API
         const res = await fetch(baseURL+'London,uk&APPID='+key);
+        console.log('API reponse', res)
 
         console.log('getWebApiData', res);
         try {
