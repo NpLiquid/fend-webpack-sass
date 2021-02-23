@@ -1,6 +1,9 @@
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
 
+// new fetch request to an external API
+import { requestAPI } from './js/externalAPI'
+
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/form.scss'
@@ -13,5 +16,6 @@ alert("I EXIST")
 
 export {
     checkForName,
-    handleSubmit
+    handleSubmit,
+    requestAPI
 }
